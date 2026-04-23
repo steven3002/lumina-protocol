@@ -9,6 +9,9 @@
 
 Traditional scholarships favor the elite; Lumina funds the hardworking average student by releasing capital incrementally as verifiable, peer-reviewed milestones are achieved.
 
+<img width="1024" height="559" alt="image" src="https://github.com/user-attachments/assets/88f60762-c44a-4c05-a99d-6390703b3ea0" />
+
+
 ---
 
 ## 📖 Table of Contents
