@@ -1,0 +1,24 @@
+[package]
+name = "lumina"
+version = "0.0.1"
+description = "A decentralized, milestone-based crowdfunding platform on Solana enabling transparent student sponsorships through on-chain consensus voting."
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "lumina"
+
+[features]
+default = []
+cpi = ["no-entrypoint"]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+idl-build = ["anchor-lang/idl-build"]
+
+[dependencies]
+anchor-lang = { version = "1.0.0", features = ["init-if-needed"] }
+
+[dev-dependencies]
+litesvm = "=0.7.1"
+solana-sdk = "2.3"
