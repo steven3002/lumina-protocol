@@ -1,5 +1,6 @@
 use anchor_lang::prelude::*;
 
+
 #[account]
 #[derive(InitSpace)]
 pub struct Campaign {
@@ -7,8 +8,13 @@ pub struct Campaign {
     pub target_amount: u64,
     pub total_raised: u64,
     pub milestone_count: u32,
+    // strictly cap  at 500 characters to keep rent costs down for the student.
+    #[max_len(500)] 
+    pub metadata_json: String, 
     pub bump: u8,
 }
+
+
 
 impl Campaign {
     // Discriminator (8) + Pubkey (32) + 2x u64 (16) + u32 (4) + bump (1)

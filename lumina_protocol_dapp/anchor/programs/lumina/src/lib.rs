@@ -12,8 +12,8 @@ declare_id!("Du5PVgf8KWZXSXFUsb9akbudaS7TgMHVr9JJ9TX4fMio");
 pub mod lumina_protocol {
     use super::*;
 
-    pub fn initialize_campaign(ctx: Context<InitializeCampaign>, target_amount: u64) -> Result<()> {
-        instructions::initialize_campaign::handler(ctx, target_amount)
+    pub fn initialize_campaign(ctx: Context<InitializeCampaign>, target_amount: u64, metadata_json: String) -> Result<()> {
+        instructions::initialize_campaign::handler(ctx, target_amount, metadata_json)
     }
 
     pub fn initialize_milestone(ctx: Context<InitializeMilestone>, amount_allocated: u64) -> Result<()> {

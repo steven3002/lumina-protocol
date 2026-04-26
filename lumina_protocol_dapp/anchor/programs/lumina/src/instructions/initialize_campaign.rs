@@ -17,12 +17,17 @@ pub struct InitializeCampaign<'info> {
     pub system_program: Program<'info, System>,
 }
 
-pub fn handler(ctx: Context<InitializeCampaign>, target_amount: u64) -> Result<()> {
+// Add the new parameter here
+pub fn handler(ctx: Context<InitializeCampaign>, target_amount: u64, metadata_json: String) -> Result<()> {
+    // Basic protection against the student blowing up the transaction
+    require!(metadata_json.len() <= 500, crate::errors::LuminaError::UrlTooLong); // Reusing error or make a new one
+
     let campaign = &mut ctx.accounts.campaign;
     campaign.student = ctx.accounts.student.key();
     campaign.target_amount = target_amount;
     campaign.total_raised = 0;
     campaign.milestone_count = 0;
+    campaign.metadata_json = metadata_json;
     campaign.bump = ctx.bumps.campaign;
     
     Ok(())
